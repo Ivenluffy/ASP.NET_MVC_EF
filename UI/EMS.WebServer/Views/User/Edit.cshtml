@@ -1,0 +1,45 @@
+﻿@using EMS.IBLL;
+@using EMS.Model;
+@model EMS.Model.UserInfo
+@{
+    IDepartmentService service = EMS.BLLContainer.Container.Resolve<IDepartmentService>();
+    List<Department> list = service.GetModels(p => true).ToList();
+}
+
+<div>
+    <form action="@Url.Action("Update","User")" method="post" class="form-horizontal">
+        <div class="form-group">
+            <label class="control-label col-sm-3">Id：</label>
+            <div class="col-sm-3">
+                <input type="number" name="Id" class="form-control" value="@Model.Id" readonly/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-3">名称：</label>
+            <div class="col-sm-3">
+                <input type="text" name="Name" class="form-control" value="@Model.Name" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-3">部门：</label>
+            <div class="col-sm-3">
+                <select name="DepartmentId" class="form-control">
+                    <option value=""></option>
+                    @foreach (Department obj in list)
+                    {
+                        <option value="@obj.Id" @(obj.Id == Model.DepartmentId ? "selected" : "")>@obj.Name</option>
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-3"></label>
+            <div class="col-sm-3">
+                @Html.ActionLink("返回列表", "Index", null, new { @class = "btn btn-info" })
+                <button type="submit" class="btn btn-primary">提交</button>
+            </div>
+
+        </div>
+    </form>
+</div>
+

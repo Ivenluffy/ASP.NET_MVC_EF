@@ -1,0 +1,29 @@
+﻿
+@model EMS.Model.Department
+@{
+    ViewBag.Title = "Edit";
+}
+
+@Html.ActionLink("返回部门", "Index", null, new { @class = "btn btn-info" })
+
+<table border="1" cellpadding="0" cellspacing="0" width="500">
+    <tr>
+        <th>ID</th>
+        <th>部门名称</th>
+        <th>部门代码</th>
+        <th>隶属部门</th>
+        <th>子部门</th>
+        <th>部门用户</th>
+    </tr>
+    <tr>
+        <td>@Model.Id</td>
+        <td>@Model.Name</td>
+        <td>@Model.Code</td>
+        <td>@(Model.Parent == null ? "" : Model.Parent.Name)</td>
+        <td>@string.Join(",", Model.Children.Select(p => p.Name))</td>
+        <td>
+            @string.Join(",", Model.UserInfo.Select(m => m.Name))
+        </td>
+
+    </tr>
+</table>

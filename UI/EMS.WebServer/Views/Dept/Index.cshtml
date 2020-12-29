@@ -1,0 +1,64 @@
+﻿
+@using EMS.Model
+@model List<Department>
+@{
+    ViewBag.Title = "Home Page";
+}
+<style>
+    th, td {
+        text-align: center;
+    }
+</style>
+<div>
+    <div class="btn-group">
+        @Html.ActionLink("新增", "Add", null, new { @class = "btn btn-primary" })
+    </div>
+    <table border="1" cellpadding="0" cellspacing="0" width="600">
+        <tr>
+            <th>ID</th>
+            <th>部门名称</th>
+            <th>部门代码</th>
+            <th>隶属部门</th>
+            <th>子部门</th>
+            <th>部门用户</th>
+            <th>操作</th>
+        </tr>
+        @foreach (Department item in Model)
+        {
+    <tr>
+        <td>@item.Id</td>
+        <td>@item.Name</td>
+        <td>@item.Code</td>
+        <td>@(item.Parent == null ? "" : item.Parent.Name)</td>
+        <td>@string.Join(",", item.Children.Select(p => p.Name))</td>
+        <td>
+            @string.Join(",", item.UserInfo.Select(m => m.Name))
+        </td>
+        <td width="120">
+            @Html.ActionLink("修改", "Edit", new { id = item.Id })
+            @Html.ActionLink("详情", "Detail", new { id = item.Id })
+            @*@Ajax.ActionLink("删除", "Delete", "Dept", new { id = item.Id }, new AjaxOptions { HttpMethod = "POST", OnSuccess = "reload" })*@
+            <a href="javascript:void(0);" onclick="removeFn(@item.Id)">删除</a>
+        </td>
+    </tr>
+        }
+    </table>
+</div>
+<script>
+    function removeFn(id) {
+        $.ajax({
+            url: "/Dept/Delete",
+            type: "POST",
+            data: { Id: id },
+            success: function () {
+                location.reload()
+            },
+            error: function (err) {
+                console.log(err)
+            }
+        });
+    }
+    //function reload() {
+    //    location.reload();
+    //}
+</script>

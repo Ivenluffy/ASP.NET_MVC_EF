@@ -1,0 +1,8 @@
+C:\Resouces\AppDemo\DotNet\TEMPLATEDEMO\EMS\Common\EMS.Common\bin\Debug\EMS.Common.dll
+C:\Resouces\AppDemo\DotNet\TEMPLATEDEMO\EMS\Common\EMS.Common\bin\Debug\EMS.Common.pdb
+C:\Resouces\AppDemo\DotNet\TEMPLATEDEMO\EMS\Common\EMS.Common\bin\Debug\Newtonsoft.Json.dll
+C:\Resouces\AppDemo\DotNet\TEMPLATEDEMO\EMS\Common\EMS.Common\bin\Debug\Newtonsoft.Json.xml
+C:\Resouces\AppDemo\DotNet\TEMPLATEDEMO\EMS\Common\EMS.Common\obj\Debug\EMS.Common.csprojAssemblyReference.cache
+C:\Resouces\AppDemo\DotNet\TEMPLATEDEMO\EMS\Common\EMS.Common\obj\Debug\EMS.Common.csproj.CopyComplete
+C:\Resouces\AppDemo\DotNet\TEMPLATEDEMO\EMS\Common\EMS.Common\obj\Debug\EMS.Common.dll
+C:\Resouces\AppDemo\DotNet\TEMPLATEDEMO\EMS\Common\EMS.Common\obj\Debug\EMS.Common.pdb
